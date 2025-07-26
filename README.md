@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# File Upload App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React app for uploading images with drag and drop functionality.
 
-## Available Scripts
+## What it does
 
-In the project directory, you can run:
+This app lets users upload image files by either dragging and dropping them or clicking to browse. It shows thumbnails of selected images, validates file types and sizes, and displays upload progress.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Drag and drop files or click to browse
+- Only accepts JPG, JPEG, and PNG images
+- Maximum 100MB per file, up to 10 files
+- Shows image thumbnails before upload
+- Upload progress bar
+- Remove files before uploading
+- Works on mobile and desktop
+- Simple 404 page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project structure
 
-### `npm test`
+```
+src/
+├── pages/
+│   ├── UploadPage.js          # Main page
+│   └── PageNotFound.js        # 404 page
+├── components/
+│   ├── FileUploadMain.js      # Main component with all the logic
+│   ├── FileUploadDropzone.js  # Drop zone area
+│   ├── FileList.js           # Shows selected files
+│   ├── FileItem.js           # Single file with thumbnail
+│   ├── UploadButton.js       # Upload button
+│   └── index.css             # All the styles
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to run
 
-### `npm run build`
+1. Install dependencies:
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Start the app:
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Open http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Configuration
 
-### `npm run eject`
+You can change these settings in `UploadPage.js`:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+<FileUploadMain
+  maxFileSize={100 * 1024 * 1024}  // File size limit
+  acceptedTypes={['image/jpeg', 'image/png', 'image/jpg']}  // Allowed types
+  maxFiles={10}  // How many files
+/>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React with hooks
+- Lucide React for icons
+- Regular CSS for styling
+- HTML5 File API for file handling
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with Create React App.
